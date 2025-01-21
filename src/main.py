@@ -4,8 +4,7 @@ def greet(name):
     print(f"Hello, {name}!")  # This is a well-formatted line
 
 
-def add_numbers(a, b):
-    return a + b  # This line is now properly formatted
+def add_numbers(a, b): return a + b  # This line violates PEP8 guidelines
 
 
 def main():
