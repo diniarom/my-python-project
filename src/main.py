@@ -2,7 +2,7 @@
 
 import os  # Unused import
 
-def greet(  name  ):
+def greet("name"):
 print(f"Hello, {name}!")  # Incorrect indentation and extra spaces
 
 def add_numbers(a,b):return a+b  # No whitespace around operators and too much code on one line
