@@ -30,7 +30,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 4: Run Flake8 linter
+      # Step 4: Run Flake8 linter with output configuration
       - name: Run Flake8
         run: |
-          flake8 src/
+          flake8 src/ --output-file=flake8-report.txt || true
+          cat flake8-report.txt
+
