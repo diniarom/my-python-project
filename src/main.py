@@ -1,16 +1,17 @@
 # src/main.py
 
-import os  # Unused import
+def greet(name):
+    print(f"Hello, {name}!")  # This is a well-formatted line
 
-def greet("name"):
-print(f"Hello, {name}!")  # Incorrect indentation and extra spaces
 
-def add_numbers(a,b):return a+b  # No whitespace around operators and too much code on one line
+def add_numbers(a, b): return a + b  # This line violates PEP8 guidelines
 
 
 def main():
     greet("World")
-    result = add_numbers(5,7) # No whitespace after comma
+    result = add_numbers(5, 7)
     print(f"The sum is: {result}")
 
-if __name__=="__main__":main()  # No whitespace around operators and too much code on one line
+
+if __name__ == "__main__":
+    main()
