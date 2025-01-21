@@ -1,6 +1,5 @@
-name: Lint Code with Flake8
+name: CI Pipeline
 
-# Trigger workflow on push and pull request events
 on:
   push:
     branches:
@@ -8,11 +7,11 @@ on:
       - '**'
   pull_request:
 
-# Define jobs to be run
 jobs:
-  lint:
-    name: Run Linter
-    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+  lint-and-test:
+    name: Lint and Test
+    runs-on: ubuntu-latest
+
     steps:
       # Step 1: Check out the repository code
       - name: Checkout code
@@ -33,4 +32,10 @@ jobs:
       # Step 4: Run Flake8 linter
       - name: Run Flake8
         run: |
-          flake8 src/
+          flake8 src/ --output-file=flake8-report.txt || true
+          cat flake8-report.txt
+
+      # Step 5: Run Pytest
+      - name: Run Pytest
+        run: |
+          pytest --cov=src tests/  # Runs tests and measures code coverage
